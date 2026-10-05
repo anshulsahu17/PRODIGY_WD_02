@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Stopwatch</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="Task2.css">
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         STOPWATCH CONTAINER
+    ========================== -->
+
+    <main class="stopwatch">
+
+        <!-- Heading -->
+
+        <h1>
+            Stopwatch
+        </h1>
+
+
+        <!-- Time Display -->
+
+        <div
+            class="display"
+            id="display"
+        >
+            00:00:00
+        </div>
+
+
+        <!-- Control Buttons -->
+
+        <div class="controls">
+
+            <button
+                id="startBtn"
+                class="btn start"
+            >
+                Start
+            </button>
+
+
+            <button
+                id="pauseBtn"
+                class="btn pause"
+            >
+                Pause
+            </button>
+
+
+            <button
+                id="resetBtn"
+                class="btn reset"
+            >
+                Reset
+            </button>
+
+
+            <button
+                id="lapBtn"
+                class="btn lap"
+            >
+                Lap
+            </button>
+
+        </div>
+
+
+        <!-- Lap Section -->
+
+        <section class="laps">
+
+            <h2>
+                Lap Times
+            </h2>
+
+            <ul id="lapList">
+                <!-- Lap times will be added here
+                     using JavaScript -->
+            </ul>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+
+  <script src="Task2.js"></script>
+</body>
+</html>

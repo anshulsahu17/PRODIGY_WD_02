@@ -1,0 +1,537 @@
+/* ==============================
+   RESET
+============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==============================
+   BODY
+============================== */
+
+body {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #372080,
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            gray,
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+           black
+        );
+
+    overflow-x: hidden;
+
+    position: relative;
+}
+
+
+/* ==============================
+   BACKGROUND GLOW
+============================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    top: -100px;
+    right: -80px;
+
+    background:
+        rgba(130, 70, 255, 0.25);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    bottom: -100px;
+    left: -80px;
+
+    background:
+        rgba(0, 150, 255, 0.25);
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+
+/* ==============================
+   STOPWATCH CARD
+============================== */
+
+.stopwatch {
+
+    width: 100%;
+
+    max-width: 620px;
+
+    padding: 45px 40px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 28px;
+
+    backdrop-filter:
+        blur(25px);
+
+    -webkit-backdrop-filter:
+        blur(25px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.35);
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* ==============================
+   HEADING
+============================== */
+
+
+.stopwatch h1 {
+
+
+    font-size: clamp(32px, 6vw, 48px);
+    margin-bottom: 30px;
+    letter-spacing: -1px;
+     font-family: "Caveat", cursive;
+    font-size: clamp(32px, 6vw, 48px);
+
+
+    margin-bottom: 30px;
+
+    letter-spacing:
+        -1px;
+}
+
+
+/* ==============================
+   TIME DISPLAY
+============================== */
+
+.display {
+ 
+    width: 104%;
+    
+    padding: 20px 10px;
+
+    padding-left: 6px;
+
+    margin-bottom: 30px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.25);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.1);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(48px, 10vw, 76px);
+
+    font-weight: 700;
+
+    letter-spacing:
+        4px;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 20px
+        rgba(80, 190, 255, 0.5);
+
+    white-space: nowrap;
+}
+
+
+/* ==============================
+   BUTTON CONTROLS
+============================== */
+
+.controls {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 35px;
+}
+
+
+.btn {
+
+    padding:
+        14px 10px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    color: black;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.btn:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+.btn:active {
+
+    transform:
+        translateY(0)
+        scale(0.97);
+}
+
+
+/* ==============================
+   BUTTON COLORS
+============================== */
+
+.start {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00c853,
+            #00a844
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 200, 83, 0.25);
+}
+
+
+.pause {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffb300,
+            #f57c00
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(255, 179, 0, 0.25);
+}
+
+
+.reset {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff5252,
+            #d50000
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(255, 82, 82, 0.25);
+}
+
+
+.lap {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2196f3,
+            #1565c0
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(33, 150, 243, 0.25);
+}
+
+
+/* ==============================
+   LAP SECTION
+============================== */
+
+.laps {
+
+    text-align: left;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    padding-top: 25px;
+}
+
+
+.laps h2 {
+
+    margin-bottom: 15px;
+
+    font-size: 20px;
+
+    text-align: center;
+
+    color:
+        rgba(255,255,255,0.9);
+}
+
+
+/* ==============================
+   LAP LIST
+============================== */
+
+#lapList {
+
+    list-style: none;
+
+    max-height: 250px;
+
+    overflow-y: auto;
+
+    padding-right: 5px;
+}
+
+
+/* Custom scrollbar */
+
+#lapList::-webkit-scrollbar {
+
+    width: 5px;
+}
+
+
+#lapList::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255,255,255,0.25);
+
+    border-radius: 10px;
+}
+
+
+/* ==============================
+   LAP ITEM
+============================== */
+
+#lapList li {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 13px 16px;
+
+    margin-bottom: 8px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    color:
+        rgba(255,255,255,0.85);
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    animation:
+        lapAppear 0.25s ease;
+}
+
+
+/* ==============================
+   LAP ANIMATION
+============================== */
+
+@keyframes lapAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-8px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+}
+
+
+/* ==============================
+   RESPONSIVE TABLET
+============================== */
+
+@media (max-width: 600px) {
+
+    .stopwatch {
+
+        padding:
+            35px 25px;
+
+        border-radius:
+            22px;
+    }
+
+
+    .controls {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .display {
+
+        letter-spacing:
+            2px;
+
+        padding:
+            22px 8px;
+    }
+}
+
+
+/* ==============================
+   RESPONSIVE MOBILE
+============================== */
+
+@media (max-width: 400px) {
+
+    body {
+
+        padding:
+            12px;
+    }
+
+
+    .stopwatch {
+
+        padding:
+            28px 18px;
+    }
+
+
+    .stopwatch h1 {
+
+        font-size:
+            32px;
+    }
+
+
+    .display {
+
+        font-size:
+            40px;
+
+        letter-spacing:
+            1px;
+    }
+
+
+    .btn {
+
+        padding:
+            13px 8px;
+
+        font-size:
+            14px;
+    }
+}
